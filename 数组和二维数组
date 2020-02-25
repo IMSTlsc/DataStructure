@@ -1,0 +1,101 @@
+package Base;
+
+public class Array {
+    int[] arr1 = new int[5];//创建数组就会开辟空间，默认全0
+    int[] arr2 = null;
+//    arr2 = new int[5];在类，不能分两行复制
+    int[] arr3 = {1,2,3};
+    public void print(int[] array)
+    {
+        for(int i : array)
+        {
+            System.out.println(i);
+        }
+    }
+    public void test() {
+        int[] arr4 = null;//先在栈中创建地址
+        arr4 = new int[4];//new时在堆内存中分配空间
+        Array a = new Array();
+        a.print(a.arr1);
+        a.print(a.arr3);
+    }
+    /*数组相当于数据结构的一种实现
+    * 数组常用来考排序算法
+    * 1、写出某种排序算法
+    * 冒泡排序
+    * 选择排序
+    * 插入排序
+    * 快速排序
+    * 2、排序算法的时间复杂度（空间复杂度）
+    * 衡量一个数据结构是否合适
+    * 3、排序算法的稳定性
+    * 排序之后的值跟排序之前的值位置是否发生变化。
+    * */
+    public static void main(String[] args) {
+        int[] arr = new int[]{9,8,7,6,5};
+        //冒泡排序
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=0; j < arr.length-1-i;j++)
+            {
+                if(arr[j]>arr[j+1])
+                {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    //a=a+b;
+                    //b=a-b;
+                    //a=a-b;
+                }
+            }
+        }
+        for(int i : arr)
+        {
+            System.out.println(i);
+        }
+        //
+        for(int i = 0;i< arr.length;i++)
+        {
+            for(int j = i+1; j < arr.length; j++)
+            {
+                if(arr[i] > arr[j])
+                {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        for(int i : arr)
+        {
+            System.out.println(i);
+        }
+
+        //二维数组遍历,array.length表示行数
+        //array[i].length表示每一行的列数
+        int[][] array = new int[3][];
+        array[0] = new int[1];
+        array[1] = new int[2];
+        array[2] = new int[3];
+
+        array[0][0] = 1;
+
+        array[1][0] = 2;
+        array[1][1] = 3;
+
+        array[2][0] = 4;
+        array[2][1] = 5;
+        array[2][2] = 6;
+
+        for(int i = 0; i < array.length; i++)
+        {
+            for(int j = 0; j < array[i].length; j++)
+            {
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+    }
+
+}
