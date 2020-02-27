@@ -1,0 +1,18 @@
+1、十进制转换为二进制，利用String
+ public void TenTo()
+    {
+        System.out.println("input num");
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt();
+        int i;
+        String s = "";
+        while(true)
+        {
+            i = k % 2;
+            s = i + s;
+            if(k==0)
+                break;
+            k = k / 2;
+        }
+        System.out.println(s);
+    }
